@@ -8,13 +8,11 @@
 using namespace std;
 
 int main() {
-    /*
-    ifstream trans("trans.txt");
-    float bal, change;
+    ifstream trans("trans.txt"); // pulls from file trans.txt
+    float bal, change; // declares float variables
     char transType;
-    transactions >> balance;
+    trans >> balance; // taking first value from transactions then putting it in our balance
 
-    //Outputs Table Header
     setfill(' ');
     cout << right << "Type of Transaction" << setw(15) << "Amount" << setw(20) << "Balance" << endl;
 
@@ -34,17 +32,13 @@ int main() {
         cout << right << transType << setw(13) << fixed << setprecision(2) << change << setw(20) << bal << endl;
     }
 
-    //Outputs Final Balance
     cout << "\nFinal Balance: " << fixed << setprecision(2) << bal;
 
-    //Closes txt File
     trans.close();
     */
-
-    //Setup Variables
     ifstream trans("trans.txt");
     ofstream note("note.txt");
-    float startBal, bal, change, transDone, totalDep, totalWith;
+    float startBal, bal, change, transDone, Dep, With;
     char transType;
 
     //Setup Starting Balance
@@ -56,40 +50,35 @@ int main() {
     setfill(".");
     note << right << "Type" << setw(10) << "Amount" << setw(20) << "Balance" << endl;
 
-    //Repeat Until End of File
-    while (!trans.eof()) {
-        //Take the Transaction Type
-        trans >> transType;
-        //Take the Transaction Amount
-        trans >> change;
-        //Add 1 to Transactions Done
-        transDone++;
-        //Different Actions for Different Cases
-        switch(transType) {
+    while (!trans.eof()) { //loops
+        // takes our trans type
+        trans >> transType; // and then stores it
+        // trans amount
+        trans >> change; // stores it
+        transDone++; // append 1
+
+        switch(transType) // different cases 
+        {
             case 'W':
                 bal -= change;
-                totalWith += change;
+                With += change;
                 break;
             case 'D':
                 bal += change;
-                totalDep += change;
+                Dep += change;
                 break;
         }
-        //Outputs Data In a Set Format
-        setfill(".");
+
+        setfill("_");
         note << right << transType << setw(13) << fixed << setprecision(2) << change << setw(20) << bal << endl;
     }
 
-    //Final Bank Info
-    note << "\nTransactions Done: " << transDone << endl;
-    note << "Total Deposits: " << fixed << setprecision(2) << totalDep << endl;
-    note << "Total Withdraws: " << fixed << setprecision(2) << totalWith << endl;
-    note << "Final Balance: " << fixed << setprecision(2) << bal << endl;
-    
-    //Closes txt Files
+    note << "\nTransaction Count: \n" << transDone << endl;
+    note << "Deposits: \n" << fixed << setprecision(2) << Dep << endl;
+    note << "Withdraws: \n" << fixed << setprecision(2) << With << endl;
+    note << "Balance: \n" << fixed << setprecision(2) << bal << endl;
+
     trans.close();
     note.close();
-
-    //Exits Successfully
     return 0;
 }
