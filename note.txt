@@ -9,7 +9,11 @@ D       100.00             4150.00
 D      1000.00             5150.00
 W        20.00             5130.00
 
-Transactions Done: 7.00
-Total Deposits: 1190.00
-Total Withdraws: 1060.00
-Final Balance: 5130.00
+Transaction Count: 
+7.00
+Deposits: 
+1190.00
+Withdraws: 
+1060.00
+Balance: 
+5130.00
