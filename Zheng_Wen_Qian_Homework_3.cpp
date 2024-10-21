@@ -9,7 +9,7 @@ using namespace std;
 
 int main() {
     /*
-    ifstream trans("transactions.txt");
+    ifstream trans("trans.txt");
     float bal, change;
     char transType;
     transactions >> balance;
@@ -42,8 +42,8 @@ int main() {
     */
 
     //Setup Variables
-    ifstream trans("transactions.txt");
-    ofstream note("banknote.txt");
+    ifstream trans("trans.txt");
+    ofstream note("note.txt");
     float startBal, bal, change, transDone, totalDep, totalWith;
     char transType;
 
