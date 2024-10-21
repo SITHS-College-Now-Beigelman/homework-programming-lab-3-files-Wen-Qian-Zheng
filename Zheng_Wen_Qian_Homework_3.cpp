@@ -7,7 +7,9 @@
 #include <iomanip>
 using namespace std;
 
-int main() {
+int main() 
+{
+    /*
     ifstream trans("trans.txt"); // pulls from file trans.txt
     float bal, change; // declares float variables
     char transType;
